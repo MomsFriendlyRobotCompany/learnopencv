@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
 OpenCV Non-Photorealistic Rendering Python Example
 
@@ -28,4 +30,3 @@ cv2.imwrite("pencil-sketch-color.jpg", imout);
 # Stylization filter
 cv2.stylization(im,imout);
 cv2.imwrite("stylization.jpg", imout);
-

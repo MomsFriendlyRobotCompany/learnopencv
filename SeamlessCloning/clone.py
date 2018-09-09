@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 '''
     OpenCV seamlessCloning Example
     Copyright 2015 by Satya Mallick <spmallick@gmail.com>
@@ -6,7 +6,7 @@
 
 # Standard imports
 import cv2
-import numpy as np 
+import numpy as np
 
 # Read images
 src = cv2.imread("images/airplane.jpg")
@@ -26,5 +26,3 @@ output = cv2.seamlessClone(src, dst, src_mask, center, cv2.NORMAL_CLONE)
 
 # Write result
 cv2.imwrite("images/opencv-seamless-cloning-example.jpg", output);
-
-

@@ -1,7 +1,9 @@
+#!/usr/bin/env python
+
 import cv2
 import sys
 
-(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')￼
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
 
 if __name__ == '__main__' :
 
@@ -9,7 +11,7 @@ if __name__ == '__main__' :
     # Instead of MIL, you can also use
 
     tracker_types = ['BOOSTING', 'MIL','KCF', 'TLD', 'MEDIANFLOW', 'GOTURN']
-    tracker_type = tracker_types[2]
+    tracker_type = tracker_types[2]  # 2 works nice
 
     if int(minor_ver) < 3:
         tracker = cv2.Tracker_create(tracker_type)
@@ -41,12 +43,13 @@ if __name__ == '__main__' :
     if not ok:
         print 'Cannot read video file'
         sys.exit()
-    
+
     # Define an initial bounding box
     bbox = (287, 23, 86, 320)
 
     # Uncomment the line below to select a different bounding box
     bbox = cv2.selectROI(frame, False)
+    print(bbox)
 
     # Initialize tracker with first frame and bounding box
     ok = tracker.init(frame, bbox)
@@ -56,7 +59,7 @@ if __name__ == '__main__' :
         ok, frame = video.read()
         if not ok:
             break
-        
+
         # Start timer
         timer = cv2.getTickCount()
 
@@ -78,7 +81,7 @@ if __name__ == '__main__' :
 
         # Display tracker type on frame
         cv2.putText(frame, tracker_type + " Tracker", (100,20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50),2);
-    
+
         # Display FPS on frame
         cv2.putText(frame, "FPS : " + str(int(fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2);
 
